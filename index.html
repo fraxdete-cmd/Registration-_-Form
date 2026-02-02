@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11RCDG ROTC Registration - SMCTI Tagum College</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="military-bg"></div>
+    
+    <div class="container">
+        <header class="header">
+            <div class="header-stripe"></div>
+            <div class="header-content">
+                <div class="badge-container">
+                    <div class="military-badge">
+                        <div class="badge-star">★</div>
+                        <div class="badge-text">11RCDG</div>
+                    </div>
+                </div>
+                <h1 class="main-title">11RCDG RETIRED PERSONNEL</h1>
+                <h2 class="sub-title">DATA SHEET FORM</h2>
+                <p class="institution">SMCTI TAGUM COLLEGE</p>
+            </div>
+            <div class="header-stripe"></div>
+        </header>
+
+        <form id="registrationForm" class="registration-form">
+            <!-- Photo Upload Section -->
+            <div class="photo-section">
+                <div class="photo-upload-box" id="photoBox">
+                    <div class="photo-placeholder">
+                        <span class="photo-icon">📷</span>
+                        <span class="photo-text">1 x 1 ID Photo</span>
+                        <input type="file" id="photoUpload" accept="image/*" hidden>
+                    </div>
+                    <img id="photoPreview" class="photo-preview" style="display: none;">
+                </div>
+            </div>
+
+            <!-- Section A: Personal Data -->
+            <div class="form-section">
+                <h3 class="section-header">A) PERSONAL DATA:</h3>
+                
+                <div class="form-group">
+                    <label class="form-label">1) NAME</label>
+                    <div class="name-fields">
+                        <input type="text" class="form-input" placeholder="Ret Rank" id="retRank" required>
+                        <input type="text" class="form-input" placeholder="Family Name" id="familyName" required>
+                        <input type="text" class="form-input" placeholder="First Name" id="firstName" required>
+                        <input type="text" class="form-input short" placeholder="MI" id="middleInitial" required>
+                        <input type="text" class="form-input" placeholder="AFPSN & Br Svc" id="afpsn" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">2) DATE OF BIRTH</label>
+                    <input type="date" class="form-input" id="dateOfBirth" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">3) STATUS:</label>
+                    <div class="status-fields">
+                        <label class="checkbox-label">
+                            <input type="radio" name="status" value="Married" id="statusMarried">
+                            <span>Married</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="radio" name="status" value="Widow/Widower" id="statusWidow">
+                            <span>Widow/Widower</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="radio" name="status" value="Separated" id="statusSeparated">
+                            <span>Separated</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="radio" name="status" value="Single" id="statusSingle">
+                            <span>Single</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">4) NAME OF SPOUSE:</label>
+                    <input type="text" class="form-input full-width" id="spouseName">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">5) PERMANENT HOME ADDRESS</label>
+                    <input type="text" class="form-input full-width" id="homeAddress" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">6) CONTACT NUMBERS:</label>
+                    <div class="contact-fields">
+                        <input type="tel" class="form-input" placeholder="Cell Phone Nr" id="cellPhone" required>
+                        <input type="email" class="form-input" placeholder="E-Mail Address" id="email" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section B: Military Service Records -->
+            <div class="form-section">
+                <h3 class="section-header">B) MILITARY SERVICE RECORDS:</h3>
+
+                <div class="form-group">
+                    <label class="form-label">1) DATE ENTERED MIL SVC:</label>
+                    <div class="military-fields">
+                        <input type="date" class="form-input" id="dateEntered" required>
+                        <input type="text" class="form-input" placeholder="Location" id="entryLocation" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">2) DATE ASSIGNED:</label>
+                    <div class="military-fields">
+                        <input type="text" class="form-input" placeholder="11RCDU/HDU" id="rcduHdu" required>
+                        <input type="text" class="form-input" placeholder="11RCDG" id="rcdg" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">3) LAST UNIT ASSIGNMENT (Retired)</label>
+                    <input type="text" class="form-input full-width" id="lastUnit" required>
+                    <label class="form-label">LOCATION:</label>
+                    <input type="text" class="form-input full-width" id="lastLocation" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">4) DATE OF RETIREMENT & AUTHORITY</label>
+                    <input type="text" class="form-input full-width" id="retirementDate" required>
+                </div>
+            </div>
+
+            <!-- Certification Section -->
+            <div class="certification-section">
+                <p class="certification-text">
+                    I HEREBY CERTIFY THAT THE FOREGOING ENTRIES ARE TRUE AND CORRECT TO THE BEST OF MY KNOWLEDGE AND BELIEF.
+                </p>
+                
+                <div class="form-group">
+                    <label class="form-label">Date of Admission:</label>
+                    <input type="date" class="form-input" id="admissionDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Attachment:</label>
+                    <input type="text" class="form-input" value="Retirement Order" id="attachment" readonly>
+                </div>
+
+                <div class="signature-section">
+                    <div class="signature-box">
+                        <div class="signature-line"></div>
+                        <label class="signature-label">(Signature)</label>
+                    </div>
+                    <div class="date-box">
+                        <div class="signature-line"></div>
+                        <label class="signature-label">Date:</label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <span class="btn-text">SUBMIT REGISTRATION</span>
+                <span class="btn-icon">→</span>
+            </button>
+        </form>
+
+        <!-- Admin Portal Button -->
+        <div class="admin-portal-link">
+            <button onclick="window.location.href='admin.html'" class="admin-btn">
+                <span class="lock-icon">🔒</span>
+                ADMIN PORTAL
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

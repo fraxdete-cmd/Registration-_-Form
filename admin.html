@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal - 11RCDG ROTC System</title>
+    <link rel="stylesheet" href="admin-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="military-bg"></div>
+
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-container">
+        <div class="login-box">
+            <div class="military-badge-large">
+                <div class="badge-star">★</div>
+                <div class="badge-text">11RCDG</div>
+            </div>
+            <h1 class="login-title">ADMIN PORTAL</h1>
+            <p class="login-subtitle">RESTRICTED ACCESS</p>
+            
+            <form id="loginForm" class="login-form">
+                <div class="input-group">
+                    <label class="input-label">USERNAME</label>
+                    <input type="text" id="username" class="login-input" placeholder="Enter username" required>
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label">PASSWORD</label>
+                    <input type="password" id="password" class="login-input" placeholder="Enter password" required>
+                </div>
+                
+                <div id="loginError" class="error-message" style="display: none;">
+                    Invalid credentials. Access denied.
+                </div>
+                
+                <button type="submit" class="login-btn">
+                    <span class="lock-icon">🔓</span>
+                    ACCESS SYSTEM
+                </button>
+            </form>
+            
+            <button onclick="window.location.href='index.html'" class="back-btn">
+                ← BACK TO REGISTRATION
+            </button>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" class="dashboard-container" style="display: none;">
+        <header class="dashboard-header">
+            <div class="header-left">
+                <div class="military-badge-small">
+                    <div class="badge-star">★</div>
+                    <div class="badge-text">11RCDG</div>
+                </div>
+                <div class="header-info">
+                    <h1 class="dashboard-title">ADMIN DASHBOARD</h1>
+                    <p class="dashboard-subtitle">ROTC Registration Management System</p>
+                </div>
+            </div>
+            <button id="logoutBtn" class="logout-btn">
+                <span>🔒</span> LOGOUT
+            </button>
+        </header>
+
+        <div class="dashboard-content">
+            <!-- Statistics Cards -->
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-info">
+                        <div class="stat-label">TOTAL REGISTRATIONS</div>
+                        <div class="stat-value" id="totalRegistrations">0</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">📅</div>
+                    <div class="stat-info">
+                        <div class="stat-label">TODAY'S REGISTRATIONS</div>
+                        <div class="stat-value" id="todayRegistrations">0</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-info">
+                        <div class="stat-label">THIS MONTH</div>
+                        <div class="stat-value" id="monthRegistrations">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search and Filter -->
+            <div class="controls-bar">
+                <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search by name, ID, or email...">
+                <button id="exportBtn" class="export-btn">
+                    📥 EXPORT ALL DATA
+                </button>
+                <button id="clearAllBtn" class="clear-btn">
+                    🗑️ CLEAR ALL RECORDS
+                </button>
+            </div>
+
+            <!-- Records Table -->
+            <div class="table-container">
+                <table class="records-table">
+                    <thead>
+                        <tr>
+                            <th>PHOTO</th>
+                            <th>ID</th>
+                            <th>NAME</th>
+                            <th>RANK</th>
+                            <th>EMAIL</th>
+                            <th>CONTACT</th>
+                            <th>REGISTERED</th>
+                            <th>ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recordsTableBody">
+                        <!-- Records will be inserted here -->
+                    </tbody>
+                </table>
+                
+                <div id="noRecords" class="no-records" style="display: none;">
+                    <div class="no-records-icon">📋</div>
+                    <p>No registration records found.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detail Modal -->
+    <div id="detailModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="modal-close" id="closeModal">&times;</span>
+            <div id="detailContent"></div>
+        </div>
+    </div>
+
+    <script src="admin-script.js"></script>
+</body>
+</html>
