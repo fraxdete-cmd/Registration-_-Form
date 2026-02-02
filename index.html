@@ -150,13 +150,16 @@
                     <input type="text" class="form-input" value="Retirement Order" id="attachment" readonly>
                 </div>
 
+                <!-- Signature Section -->
                 <div class="signature-section">
                     <div class="signature-box">
-                        <div class="signature-line"></div>
+                        <canvas id="signaturePad"></canvas>
                         <label class="signature-label">(Signature)</label>
+                        <button type="button" id="clearSignature">Clear</button>
                     </div>
+
                     <div class="date-box">
-                        <div class="signature-line"></div>
+                        <input type="date" id="signatureDate" class="signature-date-input">
                         <label class="signature-label">Date:</label>
                     </div>
                 </div>
@@ -177,6 +180,40 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Signature Script -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const canvas = document.getElementById("signaturePad");
+            const ctx = canvas.getContext("2d");
+
+            // Set canvas size
+            canvas.width = canvas.offsetWidth;
+            canvas.height = 120;
+
+            let drawing = false;
+
+            canvas.addEventListener("mousedown", (e) => {
+                drawing = true;
+                ctx.beginPath();
+                ctx.moveTo(e.offsetX, e.offsetY);
+            });
+
+            canvas.addEventListener("mousemove", (e) => {
+                if (!drawing) return;
+                ctx.lineTo(e.offsetX, e.offsetY);
+                ctx.strokeStyle = "#d4af37";
+                ctx.lineWidth = 2;
+                ctx.lineCap = "round";
+                ctx.stroke();
+            });
+
+            canvas.addEventListener("mouseup", () => drawing = false);
+            canvas.addEventListener("mouseleave", () => drawing = false);
+
+            document.getElementById("clearSignature").addEventListener("click", () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            });
+        });
+    </script>
 </body>
 </html>
